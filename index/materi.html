@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Materi Pembelajaran | ExcelStart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f6ef;
+            color: #35483b;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 0;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #536b56;
+        }
+
+        .logo span {
+            color: #93a68b;
+        }
+
+        .back-link {
+            color: #536b56;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: #83977b;
+        }
+
+        /* HERO */
+        .hero {
+            background: #dce5d6;
+            border-radius: 24px;
+            padding: 25px 32px;
+            margin-bottom: 18px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #f8f6ef;
+            color: #61775e;
+            padding: 6px 13px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(25px, 3vw, 32px);
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #526353;
+        }
+
+        /* JUDUL BAGIAN */
+        .section-title {
+            font-size: 19px;
+            margin: 16px 0 12px;
+            color: #536b56;
+        }
+
+        /* CARD MATERI */
+        .materials {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            width: 100%;
+        }
+
+        .material-card {
+            background: #fffefa;
+            border: 1px solid #e8e8dc;
+            border-radius: 20px;
+            padding: 20px;
+            min-width: 0;
+        }
+
+        .number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: #e6ecdf;
+            color: #536b56;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .material-card h2 {
+            font-size: 15px;
+            color: #536b56;
+            margin-bottom: 8px;
+        }
+
+        .material-card p {
+            font-size: 11px;
+            line-height: 1.8;
+            color: #697267;
+            margin-bottom: 8px;
+        }
+
+        .material-card ul {
+            padding-left: 18px;
+        }
+
+        .material-card li {
+            font-size: 11px;
+            line-height: 1.8;
+            margin-bottom: 3px;
+            padding-left: 3px;
+            color: #596659;
+        }
+
+        .example {
+            background: #e9eee3;
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        .example h3 {
+            font-size: 11px;
+            color: #536b56;
+            margin-bottom: 6px;
+        }
+
+        .example p {
+            margin-bottom: 0;
+        }
+
+        /* TABEL CONTOH */
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10px;
+            background: #fffefa;
+        }
+
+        th, td {
+            border: 1px solid #d9dfd3;
+            padding: 7px 8px;
+            text-align: left;
+        }
+
+        th {
+            background: #dce5d6;
+            color: #35483b;
+            font-weight: 600;
+        }
+
+        /* CATATAN */
+        .note {
+            background: #e9eee3;
+            border-radius: 16px;
+            padding: 13px 18px;
+            margin-top: 15px;
+        }
+
+        .note h2 {
+            font-size: 13px;
+            color: #536b56;
+            margin-bottom: 5px;
+        }
+
+        .note p {
+            font-size: 11px;
+            line-height: 1.7;
+            color: #596659;
+        }
+
+        /* NAVIGASI */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 17px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn-back {
+            color: #536b56;
+            background: #fffefa;
+            border: 1px solid #d9dfd3;
+        }
+
+        .btn-next {
+            color: white;
+            background: #71876e;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 10px;
+            color: #8b9386;
+        }
+
+        /* LAPTOP DENGAN LAYAR PENDEK */
+        @media (min-width: 651px) and (max-height: 750px) {
+            .container {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .header {
+                margin-bottom: 10px;
+            }
+
+            .hero {
+                padding: 17px 25px;
+                margin-bottom: 10px;
+            }
+
+            .section-title {
+                font-size: 17px;
+                margin: 10px 0 8px;
+            }
+
+            .materials {
+                gap: 12px;
+            }
+
+            .material-card {
+                padding: 14px 17px;
+            }
+
+            .number {
+                width: 31px;
+                height: 31px;
+                margin-bottom: 7px;
+            }
+
+            .material-card p,
+            .material-card li {
+                line-height: 1.6;
+            }
+
+            .example {
+                padding: 8px;
+                margin-top: 7px;
+            }
+
+            th, td {
+                padding: 5px 7px;
+            }
+
+            .note {
+                margin-top: 9px;
+                padding: 9px 16px;
+            }
+
+            .navigation {
+                margin-top: 10px;
+            }
+
+            footer {
+                margin-top: 8px;
+            }
+        }
+
+        /* TAMPILAN HP */
+        @media (max-width: 650px) {
+            .container {
+                padding-top: 20px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .hero {
+                padding: 24px;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            .materials {
+                grid-template-columns: 1fr;
+            }
+
+            .material-card {
+                padding: 20px;
+            }
+
+            .material-card p,
+            .material-card li {
+                font-size: 12px;
+            }
+
+            .navigation {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                text-align: center;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">Excel<span>Start</span></div>
+   
+<a href="dashboard.html" class="back-link">
+    ← Beranda
+</a>
+
+            </a>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero">
+            <span class="label">MATERI PEMBELAJARAN</span>
+
+            <h1>Mengenal Microsoft Excel</h1>
+
+            <p>
+                Microsoft Excel merupakan aplikasi pengolah angka yang
+                dapat digunakan untuk mengatur data dalam bentuk tabel.
+                Pada materi ini, kamu akan mengenal Excel, bagian-bagian
+                lembar kerja, dan cara memasukkan data sederhana.
+            </p>
+        </section>
+
+        <!-- MATERI -->
+        <h2 class="section-title">Materi yang Akan Dipelajari</h2>
+
+        <section class="materials">
+
+            <!-- MATERI 1 -->
+            <article class="material-card">
+                <div class="number">01</div>
+
+                <h2>Pengertian dan Fungsi Microsoft Excel</h2>
+
+                <p>
+                    Microsoft Excel adalah aplikasi spreadsheet yang
+                    digunakan untuk mengolah, menyusun, dan menyajikan
+                    data dalam bentuk baris dan kolom.
+                </p>
+
+                <p>Excel dapat digunakan untuk:</p>
+
+                <ul>
+                    <li>Mencatat dan mengatur data.</li>
+                    <li>Membuat tabel yang rapi.</li>
+                    <li>Melakukan perhitungan sederhana.</li>
+                    <li>Menyajikan informasi secara terstruktur.</li>
+                </ul>
+
+                <div class="example">
+                    <h3>Contoh penggunaan</h3>
+                    <p>
+                        Membuat tabel daftar nama siswa, kelas, dan nilai.
+                    </p>
+                </div>
+            </article>
+
+            <!-- MATERI 2 -->
+            <article class="material-card">
+                <div class="number">02</div>
+
+                <h2>Mengenal Bagian Lembar Kerja Excel</h2>
+
+                <p>
+                    Lembar kerja Excel tersusun atas baris, kolom,
+                    dan sel yang digunakan untuk memasukkan data.
+                </p>
+
+                <ul>
+                    <li><strong>Workbook:</strong> berkas Excel yang berisi lembar kerja.</li>
+                    <li><strong>Worksheet:</strong> lembar kerja tempat mengolah data.</li>
+                    <li><strong>Kolom:</strong> bagian vertikal berlabel huruf A, B, C, dan seterusnya.</li>
+                    <li><strong>Baris:</strong> bagian horizontal berlabel angka 1, 2, 3, dan seterusnya.</li>
+                    <li><strong>Sel (cell):</strong> pertemuan baris dan kolom, misalnya A1.</li>
+                </ul>
+
+                <div class="example">
+                    <h3>Contoh alamat sel</h3>
+                    <p>
+                        A1 berarti sel pada kolom A dan baris 1.
+                    </p>
+                </div>
+            </article>
+
+            <!-- MATERI 3 -->
+            <article class="material-card">
+                <div class="number">03</div>
+
+                <h2>Memasukkan Data ke Excel</h2>
+
+                <p>
+                    Data dimasukkan ke dalam sel sesuai dengan informasi
+                    yang ingin dicatat. Data dapat berupa teks, angka,
+                    atau tanggal.
+                </p>
+
+                <ul>
+                    <li>Klik sel yang akan diisi.</li>
+                    <li>Ketik data yang diperlukan.</li>
+                    <li>Tekan Enter untuk menyelesaikan input.</li>
+                    <li>Ulangi pada sel berikutnya sesuai kebutuhan.</li>
+                </ul>
+
+                <div class="example">
+                    <h3>Contoh</h3>
+                    <p>
+                        Klik sel A1, ketik “Nama”, lalu tekan Enter.
+                        Berikutnya, isi sel lain dengan data yang diperlukan.
+                    </p>
+                </div>
+            </article>
+
+            <!-- MATERI 4 -->
+            <article class="material-card">
+                <div class="number">04</div>
+
+                <h2>Contoh Tabel Sederhana</h2>
+
+                <p>
+                    Berikut contoh tabel daftar siswa yang dapat dibuat
+                    dengan memasukkan data ke dalam sel Excel.
+                </p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Kelas</th>
+                                <th>Nilai</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Andi</td>
+                                <td>X-A</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>Siti</td>
+                                <td>X-A</td>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td>Budi</td>
+                                <td>X-B</td>
+                                <td>80</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="example">
+                    <h3>Yang perlu diingat</h3>
+                    <p>
+                        Setiap judul kolom dan data ditempatkan pada sel
+                        yang sesuai agar tabel mudah dibaca.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- CATATAN -->
+        <section class="note">
+            <h2>Sudah Memahami Materinya? 🌿</h2>
+
+            <p>
+                Setelah mengenal fungsi Excel, bagian lembar kerja,
+                dan cara memasukkan data, lanjutkan ke halaman Tutorial
+                Praktik untuk mencoba langkah-langkahnya secara langsung.
+            </p>
+        </section>
+
+        <!-- NAVIGASI -->
+        <nav class="navigation">
+            <a href="pendahuluan.html" class="btn btn-back">
+                ← Kembali ke Pendahuluan
+            </a>
+
+            <a href="tutorial.html" class="btn btn-next">
+                Lanjut ke Tutorial Praktik →
+            </a>
+        </nav>
+
+        <footer>
+            ExcelStart · Belajar Excel dari Dasar
+        </footer>
+
+    </main>
+</body>
+</html>

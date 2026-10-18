@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pendahuluan | ExcelStart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f6ef;
+            color: #35483b;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 0;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #536b56;
+        }
+
+        .logo span {
+            color: #93a68b;
+        }
+
+        .back-link {
+            color: #536b56;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: #83977b;
+        }
+
+        /* HERO */
+        .hero {
+            background: #dce5d6;
+            border-radius: 24px;
+            padding: 25px 32px;
+            margin-bottom: 16px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #f8f6ef;
+            color: #61775e;
+            padding: 6px 13px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: clamp(25px, 3vw, 32px);
+            line-height: 1.35;
+            margin-bottom: 8px;
+            color: #35483b;
+        }
+
+        .hero p {
+            max-width: 760px;
+            font-size: 12px;
+            line-height: 1.8;
+            color: #526353;
+        }
+
+        /* JUDUL BAGIAN */
+        .section-title {
+            font-size: 19px;
+            margin: 15px 0 12px;
+            color: #536b56;
+        }
+
+        /* DUA CARD BERDAMPINGAN */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .card {
+            background: #fffefa;
+            border: 1px solid #e8e8dc;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .card-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: #e6ecdf;
+            color: #536b56;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: #536b56;
+        }
+
+        .card p {
+            font-size: 11px;
+            line-height: 1.7;
+            color: #697267;
+            margin-bottom: 8px;
+        }
+
+        .card ul,
+        .card ol {
+            padding-left: 19px;
+        }
+
+        .card li {
+            font-size: 11px;
+            line-height: 1.7;
+            padding-left: 3px;
+            margin-bottom: 5px;
+            color: #596659;
+        }
+
+        /* CATATAN BELAJAR */
+        .tips {
+            margin-top: 14px;
+            background: #e9eee3;
+            border-radius: 16px;
+            padding: 13px 20px;
+        }
+
+        .tips h2 {
+            font-size: 13px;
+            color: #536b56;
+            margin-bottom: 5px;
+        }
+
+        .tips p {
+            font-size: 11px;
+            line-height: 1.7;
+            color: #596659;
+        }
+
+        /* TOMBOL NAVIGASI */
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 17px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 17px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn-back {
+            color: #536b56;
+            background: #fffefa;
+            border: 1px solid #d9dfd3;
+        }
+
+        .btn-next {
+            color: white;
+            background: #71876e;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 10px;
+            color: #8b9386;
+        }
+
+        /* LAPTOP DENGAN LAYAR PENDEK */
+        @media (min-width: 651px) and (max-height: 750px) {
+            .container {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .header {
+                margin-bottom: 10px;
+            }
+
+            .hero {
+                padding: 18px 25px;
+                margin-bottom: 10px;
+            }
+
+            .section-title {
+                margin: 10px 0 8px;
+                font-size: 17px;
+            }
+
+            .card {
+                padding: 15px 18px;
+            }
+
+            .card-number {
+                width: 31px;
+                height: 31px;
+                margin-bottom: 7px;
+            }
+
+            .card li {
+                margin-bottom: 3px;
+            }
+
+            .tips {
+                margin-top: 9px;
+                padding: 9px 16px;
+            }
+
+            .navigation {
+                margin-top: 10px;
+            }
+
+            footer {
+                margin-top: 8px;
+            }
+        }
+
+        /* TAMPILAN HP */
+        @media (max-width: 650px) {
+            .container {
+                width: 90%;
+                padding-top: 20px;
+            }
+
+            .header {
+                gap: 12px;
+                margin-bottom: 18px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .hero {
+                padding: 24px;
+                border-radius: 20px;
+            }
+
+            .hero h1 {
+                font-size: 25px;
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+
+            /* Card bertumpuk pada layar HP */
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card p,
+            .card li {
+                font-size: 12px;
+            }
+
+            .tips p {
+                font-size: 12px;
+            }
+
+            .navigation {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                text-align: center;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo">Excel<span>Start</span></div>
+
+            <!-- PERBAIKAN: TAUTAN BERANDA -->
+            <a href="dashboard.html" class="back-link">
+                ← Beranda
+            </a>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero">
+            <span class="label">PENDAHULUAN PEMBELAJARAN</span>
+
+            <h1>Selamat Datang di ExcelStart!</h1>
+
+            <p>
+                Yuk, mulai perjalanan belajarmu mengenal Microsoft Excel
+                dari dasar. E-modul ini membantumu memahami penggunaan
+                Excel dan berlatih memasukkan data ke dalam tabel sederhana
+                melalui materi dan tutorial yang mudah diikuti.
+            </p>
+        </section>
+
+        <!-- KONTEN UTAMA -->
+        <h2 class="section-title">Panduan Belajar ExcelStart</h2>
+
+        <section class="cards">
+
+            <!-- CARD 1: TIPS BELAJAR -->
+            <article class="card">
+                <div class="card-number">01</div>
+
+                <h2>Tips Belajar</h2>
+
+                <p>
+                    Supaya kegiatan belajarmu lebih mudah dan menyenangkan:
+                </p>
+
+                <ul>
+                    <li>Pelajari materi secara bertahap.</li>
+                    <li>Perhatikan setiap langkah pada tutorial.</li>
+                    <li>Praktikkan langsung menggunakan Microsoft Excel.</li>
+                    <li>Kerjakan kuis secara mandiri dan teliti.</li>
+                </ul>
+            </article>
+
+            <!-- CARD 2: PETUNJUK PENGGUNAAN -->
+            <article class="card">
+                <div class="card-number">02</div>
+
+                <h2>Petunjuk Penggunaan</h2>
+
+                <p>
+                    Ikuti urutan penggunaan e-modul berikut:
+                </p>
+
+                <ol>
+                    <li>Baca materi pembelajaran secara berurutan.</li>
+                    <li>Pelajari dan ikuti tutorial praktik.</li>
+                    <li>Isi identitas sebelum mengerjakan kuis.</li>
+                    <li>Selesaikan evaluasi dan lihat hasilnya.</li>
+                </ol>
+            </article>
+
+        </section>
+
+        <!-- CATATAN -->
+        <section class="tips">
+            <h2>Catatan Belajar 🌿</h2>
+
+            <p>
+                Belajarlah secara bertahap dan jangan takut mencoba.
+                Jika memungkinkan, buka Microsoft Excel sambil mengikuti
+                tutorial agar kamu dapat langsung mempraktikkan materi.
+            </p>
+        </section>
+
+        <!-- NAVIGASI -->
+        <nav class="navigation">
+
+            <!-- PERBAIKAN: TOMBOL KEMBALI KE BERANDA -->
+            <a href="dashboard.html" class="btn btn-back">
+                ← Kembali ke Beranda
+            </a>
+
+            <!-- MENUJU MATERI -->
+            <a href="materi.html" class="btn btn-next">
+                Mulai Pelajari Materi →
+            </a>
+
+        </nav>
+
+        <footer>
+            ExcelStart · Belajar Excel dari Dasar
+        </footer>
+
+    </main>
+</body>
+</html>

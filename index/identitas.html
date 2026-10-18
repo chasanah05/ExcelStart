@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identitas Siswa | ExcelStart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f6ef;
+            color: #354238;
+            line-height: 1.7;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+        }
+
+        .logo {
+            color: #536b50;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        header a {
+            color: #536b50;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        main {
+            width: 90%;
+            max-width: 650px;
+            margin: 25px auto 50px;
+        }
+
+        .hero {
+            background: #dce5d6;
+            padding: 32px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #f8f6ef;
+            color: #536b50;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 4vw, 30px);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 13px;
+            color: #596657;
+        }
+
+        .form-card {
+            background: #fffefa;
+            border: 1px solid #e9e8df;
+            border-radius: 22px;
+            padding: 30px;
+        }
+
+        .form-card h2 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .description {
+            color: #7a8075;
+            font-size: 12px;
+            margin-bottom: 24px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #dfe3d8;
+            border-radius: 12px;
+            background: white;
+            color: #354238;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        input:focus, select:focus {
+            outline: 2px solid #dce5d6;
+            border-color: #71876e;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 12px;
+            background: #71876e;
+            color: white;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5e755a;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #647b60;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #8a8d82;
+            font-size: 11px;
+        }
+
+        @media (max-width: 500px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            .hero, .form-card {
+                padding: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ExcelStart.</div>
+    <a href="dashboard.html">← Beranda</a>
+</header>
+
+<main>
+    <section class="hero">
+        <span class="label">IDENTITAS SISWA</span>
+        <h1>Siap Mengikuti Kuis? 🌿</h1>
+        <p>
+            Isi identitasmu terlebih dahulu sebelum mengerjakan
+            latihan dan evaluasi Microsoft Excel.
+        </p>
+    </section>
+
+    <section class="form-card">
+        <h2>Identitas Siswa</h2>
+        <p class="description">
+            Lengkapi data berikut dengan benar.
+        </p>
+
+        <form id="identityForm">
+            <div class="field">
+                <label for="nama">Nama Lengkap</label>
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                    maxlength="100"
+                >
+            </div>
+
+            <div class="field">
+                <label for="kelas">Kelas</label>
+                <select id="kelas" required>
+                    <option value="">Pilih kelas</option>
+                    <option value="X-A">X-A</option>
+                    <option value="X-B">X-B</option>
+                    <option value="X-C">X-C</option>
+                    <option value="X-D">X-D</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">
+                Mulai Kuis →
+            </button>
+        </form>
+
+        <a href="tutorial.html" class="back">
+            ← Kembali ke Tutorial Praktik
+        </a>
+    </section>
+</main>
+
+<footer>
+    ExcelStart · Belajar Excel dari Dasar
+</footer>
+
+<script>
+    document.getElementById('identityForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nama = document.getElementById('nama').value.trim();
+        const kelas = document.getElementById('kelas').value;
+
+        if (!nama || !kelas) {
+            alert('Silakan lengkapi nama dan kelas terlebih dahulu.');
+            return;
+        }
+
+        sessionStorage.setItem('excelStartNama', nama);
+        sessionStorage.setItem('excelStartKelas', kelas);
+
+        // Hapus hasil kuis sebelumnya untuk sesi ini.
+        sessionStorage.removeItem('excelStartHasil');
+
+        window.location.href = 'kuis.html';
+    });
+</script>
+
+</body>
+</html>

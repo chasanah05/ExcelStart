@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Praktik | ExcelStart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f6ef;
+            color: #354238;
+            line-height: 1.7;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            gap: 16px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #536b50;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #536b50;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        main {
+            width: 86%;
+            max-width: 1100px;
+            margin: 12px auto 45px;
+        }
+
+        .hero {
+            background: #dce5d6;
+            padding: 38px;
+            border-radius: 24px;
+            margin-bottom: 32px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #f8f6ef;
+            color: #647b60;
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 13px;
+        }
+
+        h1 {
+            font-size: clamp(25px, 4vw, 34px);
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 14px;
+            color: #526052;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .section-desc {
+            font-size: 13px;
+            color: #74796f;
+            margin-bottom: 22px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .step-card {
+            background: #fffefa;
+            border: 1px solid #e9e8df;
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 13px;
+            background: #e7eddf;
+            color: #536b50;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .step-card p,
+        .step-card li {
+            font-size: 13px;
+            color: #666e63;
+        }
+
+        .step-card ol {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .step-card li {
+            margin-bottom: 7px;
+            padding-left: 3px;
+        }
+
+        .example {
+            margin-top: 14px;
+            padding: 12px 14px;
+            background: #f2f4ec;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #526052;
+        }
+
+        .example strong {
+            color: #536b50;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin-top: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fffefa;
+            font-size: 12px;
+        }
+
+        th, td {
+            border: 1px solid #dfe5d9;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #dce5d6;
+            color: #435640;
+        }
+
+        .note {
+            margin-top: 24px;
+            padding: 22px 24px;
+            background: #e9eee3;
+            border-radius: 18px;
+        }
+
+        .note h2 {
+            color: #536b50;
+        }
+
+        .note p {
+            font-size: 13px;
+            color: #596457;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 19px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .btn-back {
+            color: #536b50;
+            border: 1px solid #cbd5c5;
+            background: #fffefa;
+        }
+
+        .btn-next {
+            color: white;
+            background: #71876e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #8a8d82;
+            font-size: 11px;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                padding: 18px 6%;
+            }
+
+            main {
+                width: 90%;
+                margin-top: 8px;
+            }
+
+            .hero {
+                padding: 26px 22px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ExcelStart.</div>
+<a href="dashboard.html">← Beranda</a>
+</header>
+
+<main>
+    <section class="hero">
+        <span class="label">TUTORIAL PRAKTIK</span>
+        <h1>Yuk, Praktik Langsung di Excel! 🌿</h1>
+        <p>
+            Setelah mempelajari materi, sekarang saatnya mencoba.
+            Ikuti langkah-langkah berikut untuk belajar memasukkan
+            data dan membuat tabel sederhana menggunakan Microsoft Excel.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="section-title">Langkah-Langkah Praktik</h2>
+        <p class="section-desc">
+            Ikuti setiap langkah secara berurutan agar lebih mudah dipahami.
+        </p>
+
+        <div class="steps">
+
+            <article class="step-card">
+                <div class="step-number">01</div>
+                <h2>Mengenal Lembar Kerja Excel</h2>
+                <p>
+                    Buka Microsoft Excel dan pilih buku kerja kosong
+                    atau <em>Blank Workbook</em>.
+                </p>
+                <ol>
+                    <li>Perhatikan huruf A, B, C di bagian atas sebagai kolom.</li>
+                    <li>Perhatikan angka 1, 2, 3 di sebelah kiri sebagai baris.</li>
+                    <li>Setiap kotak merupakan sel, contohnya A1.</li>
+                </ol>
+                <div class="example">
+                    <strong>Ingat:</strong> A1 berarti kolom A dan baris 1.
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">02</div>
+                <h2>Memasukkan Data</h2>
+                <p>
+                    Data dimasukkan ke dalam sel sesuai dengan posisi
+                    yang diinginkan.
+                </p>
+                <ol>
+                    <li>Klik sel A1.</li>
+                    <li>Ketik <strong>Nama</strong>.</li>
+                    <li>Tekan Enter.</li>
+                    <li>Ulangi langkah yang sama untuk data lainnya.</li>
+                </ol>
+                <div class="example">
+                    <strong>Contoh:</strong> A1 = Nama, B1 = Kelas,
+                    C1 = Nilai.
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">03</div>
+                <h2>Membuat Tabel Sederhana</h2>
+                <p>
+                    Masukkan data berikut ke lembar kerja Excel.
+                    Gunakan baris pertama sebagai judul kolom.
+                </p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Kelas</th>
+                                <th>Nilai</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andi</td>
+                                <td>X-A</td>
+                                <td>85</td>
+                            </tr>
+                            <tr>
+                                <td>Siti</td>
+                                <td>X-A</td>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td>Budi</td>
+                                <td>X-B</td>
+                                <td>80</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="example">
+                    <strong>Tips:</strong> Masukkan Nama di kolom A,
+                    Kelas di kolom B, dan Nilai di kolom C.
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">04</div>
+                <h2>Memeriksa Hasil Praktik</h2>
+                <p>Periksa kembali tabel yang sudah kamu buat.</p>
+                <ol>
+                    <li>Pastikan judul kolom sudah benar.</li>
+                    <li>Periksa nama, kelas, dan nilai.</li>
+                    <li>Pastikan data berada pada kolom yang sesuai.</li>
+                    <li>Simpan file Excel jika diperlukan.</li>
+                </ol>
+                <div class="example">
+                    <strong>Tujuan:</strong> Kamu mampu memasukkan data
+                    dengan rapi ke dalam tabel sederhana.
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="note">
+        <h2>Sudah Selesai Praktik? 🌱</h2>
+        <p>
+            Hebat! Kamu sudah mempelajari langkah dasar memasukkan data
+            dan membuat tabel sederhana. Selanjutnya, kerjakan latihan
+            dan evaluasi untuk menguji pemahamanmu.
+        </p>
+    </section>
+
+    <nav class="navigation">
+        <a href="materi.html" class="btn btn-back">
+            ← Kembali ke Materi
+        </a>
+        <a href="kuis.html" class="btn btn-next">
+            Mulai Latihan & Evaluasi →
+        </a>
+    </nav>
+</main>
+
+<footer>
+    ExcelStart · Belajar Excel dari Dasar
+</footer>
+
+</body>
+</html>

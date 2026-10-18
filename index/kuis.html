@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Excel | ExcelStart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f6ef;
+            color: #354238;
+            line-height: 1.7;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+        }
+
+        .logo {
+            color: #536b50;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        header a {
+            color: #536b50;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        main {
+            width: 90%;
+            max-width: 850px;
+            margin: 20px auto 50px;
+        }
+
+        .hero {
+            background: #dce5d6;
+            padding: 30px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #f8f6ef;
+            color: #536b50;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(24px, 4vw, 30px);
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #596657;
+            font-size: 13px;
+        }
+
+        .student-info {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            background: #fffefa;
+            border: 1px solid #e9e8df;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        .student-info strong {
+            color: #536b50;
+        }
+
+        .progress-card {
+            background: #fffefa;
+            border: 1px solid #e9e8df;
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: #e9eee3;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: #71876e;
+            border-radius: 20px;
+            transition: width 0.2s ease;
+        }
+
+        .question-card {
+            background: #fffefa;
+            border: 1px solid #e9e8df;
+            border-radius: 18px;
+            padding: 23px;
+            margin-bottom: 16px;
+        }
+
+        .question-number {
+            color: #71876e;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .question-card h2 {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            padding: 12px 14px;
+            border: 1px solid #e4e7de;
+            border-radius: 12px;
+            margin-top: 9px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .option:hover {
+            background: #f2f4ec;
+            border-color: #b9c8b2;
+        }
+
+        .option:has(input:checked) {
+            background: #e9eee3;
+            border-color: #71876e;
+        }
+
+        .option input {
+            margin-top: 5px;
+            accent-color: #71876e;
+            flex-shrink: 0;
+        }
+
+        .submit-area {
+            margin-top: 24px;
+            padding: 22px;
+            background: #e9eee3;
+            border-radius: 18px;
+        }
+
+        .submit-area p {
+            font-size: 12px;
+            color: #596657;
+            margin-bottom: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #71876e;
+            color: white;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #5e755a;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 18px;
+            color: #647b60;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #8a8d82;
+            font-size: 11px;
+        }
+
+        @media (max-width: 550px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 24px;
+            }
+
+            .question-card {
+                padding: 18px;
+            }
+
+            .student-info {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">ExcelStart.</div>
+        <a href="dashboard.html">← Beranda</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <span class="label">LATIHAN &amp; EVALUASI</span>
+            <h1>Uji Pemahamanmu! 🌿</h1>
+            <p>
+                Jawablah 10 soal berikut berdasarkan materi dan tutorial
+                praktik Microsoft Excel yang sudah kamu pelajari.
+            </p>
+        </section>
+
+        <section class="student-info">
+            <div>Nama: <strong id="studentName">-</strong></div>
+            <div>Kelas: <strong id="studentClass">-</strong></div>
+            <div>Total soal: <strong>10 soal</strong></div>
+        </section>
+
+        <section class="progress-card">
+            <div class="progress-text">
+                <span>Progres pengerjaan</span>
+                <strong id="progressText">0 dari 10 soal</strong>
+            </div>
+
+            <div
+                class="progress-track"
+                role="progressbar"
+                aria-label="Progres pengerjaan kuis"
+                aria-valuemin="0"
+                aria-valuemax="10"
+                aria-valuenow="0"
+                id="progressBar"
+            >
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </section>
+
+        <form id="quizForm">
+
+            <section class="question-card">
+                <p class="question-number">SOAL 01</p>
+                <h2>1. Apa fungsi utama Microsoft Excel?</h2>
+
+                <label class="option">
+                    <input type="radio" name="q1" value="A" required>
+                    <span>A. Mengolah data dalam bentuk tabel dan melakukan perhitungan</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="B">
+                    <span>B. Mengedit video dan membuat animasi</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="C">
+                    <span>C. Membuat desain bangunan tiga dimensi</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="D">
+                    <span>D. Menjelajahi halaman internet</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 02</p>
+                <h2>2. Pada lembar kerja Excel, kolom ditandai menggunakan ...</h2>
+
+                <label class="option">
+                    <input type="radio" name="q2" value="A" required>
+                    <span>A. Angka 1, 2, 3, dan seterusnya</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="B">
+                    <span>B. Huruf A, B, C, dan seterusnya</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="C">
+                    <span>C. Simbol operasi matematika</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="D">
+                    <span>D. Nama lembar kerja</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 03</p>
+                <h2>3. Baris pada lembar kerja Excel ditandai menggunakan ...</h2>
+
+                <label class="option">
+                    <input type="radio" name="q3" value="A" required>
+                    <span>A. Huruf A, B, C, dan seterusnya</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="B">
+                    <span>B. Warna sel</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="C">
+                    <span>C. Angka 1, 2, 3, dan seterusnya</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="D">
+                    <span>D. Nama file</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 04</p>
+                <h2>4. Kotak tempat memasukkan data pada Excel disebut ...</h2>
+
+                <label class="option">
+                    <input type="radio" name="q4" value="A" required>
+                    <span>A. Workbook</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="B">
+                    <span>B. Toolbar</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="C">
+                    <span>C. Worksheet</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="D">
+                    <span>D. Sel atau cell</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 05</p>
+                <h2>5. Apa arti alamat sel A1?</h2>
+
+                <label class="option">
+                    <input type="radio" name="q5" value="A" required>
+                    <span>A. Kolom A dan baris 1</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="B">
+                    <span>B. Kolom 1 dan baris A</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="C">
+                    <span>C. Lembar kerja A pada file 1</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="D">
+                    <span>D. Baris pertama dan kolom terakhir</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 06</p>
+                <h2>6. Setelah mengetik data pada sebuah sel, tombol yang biasa ditekan untuk mengakhiri input adalah ...</h2>
+
+                <label class="option">
+                    <input type="radio" name="q6" value="A" required>
+                    <span>A. Esc</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="B">
+                    <span>B. Enter</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="C">
+                    <span>C. Caps Lock</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="D">
+                    <span>D. Shift</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 07</p>
+                <h2>7. Jika ingin membuat tabel daftar nilai siswa, data yang sesuai untuk dijadikan judul kolom adalah ...</h2>
+
+                <label class="option">
+                    <input type="radio" name="q7" value="A" required>
+                    <span>A. Nama file, warna layar, dan ukuran font</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="B">
+                    <span>B. Gambar, musik, dan video</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="C">
+                    <span>C. Nama, kelas, dan nilai</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="D">
+                    <span>D. Browser, jaringan, dan alamat situs</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 08</p>
+                <h2>8. Manakah contoh data yang tepat untuk dimasukkan ke kolom Nilai?</h2>
+
+                <label class="option">
+                    <input type="radio" name="q8" value="A" required>
+                    <span>A. Siti</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q8" value="B">
+                    <span>B. X-A</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q8" value="C">
+                    <span>C. Nama</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q8" value="D">
+                    <span>D. 90</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 09</p>
+                <h2>9. Dalam Excel, workbook adalah ...</h2>
+
+                <label class="option">
+                    <input type="radio" name="q9" value="A" required>
+                    <span>A. File Excel yang dapat berisi satu atau beberapa worksheet</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q9" value="B">
+                    <span>B. Satu sel untuk memasukkan data</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q9" value="C">
+                    <span>C. Satu baris dalam tabel</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q9" value="D">
+                    <span>D. Tombol untuk menghapus data</span>
+                </label>
+            </section>
+
+            <section class="question-card">
+                <p class="question-number">SOAL 10</p>
+                <h2>10. Mengapa data perlu disusun dalam tabel dengan rapi?</h2>
+
+                <label class="option">
+                    <input type="radio" name="q10" value="A" required>
+                    <span>A. Agar semua data berubah menjadi gambar</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q10" value="B">
+                    <span>B. Agar data lebih mudah dibaca, diperiksa, dan dikelola</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q10" value="C">
+                    <span>C. Agar lembar kerja tidak memiliki baris</span>
+                </label>
+                <label class="option">
+                    <input type="radio" name="q10" value="D">
+                    <span>D. Agar Excel tidak bisa mengolah data</span>
+                </label>
+            </section>
+
+            <section class="submit-area">
+                <p id="completionText">
+                    Pastikan seluruh soal sudah dijawab sebelum mengirim jawaban.
+                </p>
+
+                <button type="submit" class="btn">
+                    Selesai dan Lihat Hasil →
+                </button>
+            </section>
+
+        </form>
+
+        <a href="tutorial.html" class="btn-back">
+            ← Kembali ke Tutorial Praktik
+        </a>
+    </main>
+
+    <footer>
+        ExcelStart · Belajar Excel dari Dasar
+    </footer>
+
+    <!-- Logika kuis dipisahkan ke file JavaScript -->
+    <script src="../js/kuis.js"></script>
+    <!-- Menghubungkan JavaScript untuk Google Sheets dan kuis -->
+<script src="../js/sheets.js"></script>
+<script src="../js/kuis.js"></script>
+</body>
+</html>

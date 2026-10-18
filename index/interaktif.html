@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kenali Excel - ExcelStart</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f8f5;
+    color: #24352a;
+    padding: 24px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .modul {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .area-gambar {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .area-gambar img {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .penanda {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 34px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: #237447;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0004;
+  }
+
+  .penanda:hover,
+  .penanda:focus {
+    background: #174c2e;
+    outline: 3px solid #b6e3c4;
+  }
+
+  .penjelasan {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 10px;
+    background: #eaf5ed;
+    min-height: 90px;
+  }
+
+  .pilihan {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .pilihan button {
+    padding: 10px 14px;
+    border: 1px solid #b7cdbd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    body { padding: 12px; }
+    .modul { padding: 14px; }
+    .penanda { width: 28px; height: 28px; }
+  }
+</style>
+</head>
+
+<body>
+<main class="modul">
+  <h1>Kenali Bagian Microsoft Excel</h1>
+  <p>
+    Klik angka pada gambar untuk mengetahui nama
+    dan fungsi bagian-bagian Microsoft Excel.
+  </p>
+
+  
+<div class="area-gambar">
+    <img
+        src="../images/tampilan-excel.png.jpg"
+        alt="Antarmuka Microsoft Excel"
+    >
+
+    <!-- 1. Ribbon -->
+    <button class="penanda"
+        style="left: 40%; top: 18%;"
+        data-bagian="ribbon"
+        aria-label="Pelajari Ribbon">1</button>
+
+    <!-- 2. Formula Bar -->
+    <button class="penanda"
+        style="left: 62%; top: 28%;"
+        data-bagian="formula"
+        aria-label="Pelajari Formula Bar">2</button>
+
+    <!-- 3. Baris -->
+    <button class="penanda"
+        style="left: 18%; top: 55%;"
+        data-bagian="baris"
+        aria-label="Pelajari baris">3</button>
+
+    <!-- 4. Kolom -->
+    <button class="penanda"
+        style="left: 34%; top: 38%;"
+        data-bagian="kolom"
+        aria-label="Pelajari kolom">4</button>
+
+    <!-- 5. Sel -->
+    <button class="penanda"
+        style="left: 35%; top: 48%;"
+        data-bagian="sel"
+        aria-label="Pelajari sel">5</button>
+</div>
+
+
+  <div class="penjelasan" aria-live="polite">
+    <h2 id="judul">Petunjuk</h2>
+    <p id="isi">
+      Pilih salah satu angka pada gambar untuk mulai belajar.
+    </p>
+  </div>
+
+  <div class="pilihan">
+    <button data-bagian="ribbon">Ribbon</button>
+    <button data-bagian="formula">Formula Bar</button>
+    <button data-bagian="baris">Baris</button>
+    <button data-bagian="kolom">Kolom</button>
+    <button data-bagian="sel">Sel</button>
+  </div>
+</main>
+
+<script>
+  const materi = {
+    ribbon: {
+      judul: "1. Ribbon",
+      isi: "Ribbon berisi tab dan kumpulan perintah untuk mengolah data, mengatur tampilan, serta memformat lembar kerja."
+    },
+    formula: {
+      judul: "2. Formula Bar",
+      isi: "Formula Bar menampilkan atau membantu mengedit isi sel yang sedang dipilih, termasuk rumus."
+    },
+    baris: {
+      judul: "3. Baris (Row)",
+      isi: "Baris tersusun secara horizontal dan ditandai dengan angka, seperti 1, 2, dan 3."
+    },
+    kolom: {
+      judul: "4. Kolom (Column)",
+      isi: "Kolom tersusun secara vertikal dan ditandai dengan huruf, seperti A, B, dan C."
+    },
+    sel: {
+      judul: "5. Sel (Cell)",
+      isi: "Sel adalah pertemuan antara baris dan kolom. Contohnya, sel A1 berada pada kolom A dan baris 1."
+    }
+  };
+
+  document.querySelectorAll("[data-bagian]").forEach(tombol => {
+    tombol.addEventListener("click", () => {
+      const bagian = materi[tombol.dataset.bagian];
+
+      document.getElementById("judul").textContent =
+        bagian.judul;
+
+      document.getElementById("isi").textContent =
+        bagian.isi;
+    });
+  });
+</script>
+</body>
+</html>
